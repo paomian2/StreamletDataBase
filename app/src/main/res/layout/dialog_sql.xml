@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edtSQL"
+        android:padding="15dp"
+        android:textSize="14sp"
+        android:background="#FAF0E6	"
+        android:gravity="top|left"
+        android:hint="请输入SQL语句"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        tools:ignore="Autofill,HardcodedText,RtlHardcoded,TextFields" />
+
+
+    <Button
+        android:id="@+id/btnExeCuteSQL"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:text="执行SQL"
+        android:textSize="14sp"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        tools:ignore="HardcodedText,RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/tvSQLResult"
+        android:hint="SQL执行结果..."
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:minHeight="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>
