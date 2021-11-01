@@ -1,4 +1,4 @@
-package com.streamlet.db;
+package com.streamlet.db.client;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface PrimaryKey {
-    boolean autoincrement() default true;
+public @interface Length {
+    int value() default 255;
 }

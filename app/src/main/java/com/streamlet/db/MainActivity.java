@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.streamlet.db.client.DataBaseHelper;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnQuery=findViewById(R.id.btnQuery);
         tvSQLResult=findViewById(R.id.tvSQLResult);
         btnCreateDB.setOnClickListener(v ->
-           DataBaseHelper.getInstance(MainActivity.this,"xpd")
+           DataBaseHelper.createDataBase(MainActivity.this,"xpd")
         );
         btnNormalSQL.setOnClickListener(v -> {
             DataBaseHelper.getInstance(MainActivity.this,"xpd").executeSQL(edtSQL.getText().toString().trim());

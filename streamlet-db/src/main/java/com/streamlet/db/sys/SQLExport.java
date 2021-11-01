@@ -4,7 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.streamlet.db.DataBaseHelper;
+import com.google.gson.Gson;
+import com.streamlet.db.client.DataBaseHelper;
+import com.streamlet.db.client.DbLog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +32,8 @@ public class SQLExport {
     }
 
     public static List<String> getDBList(Context context){
-        return Arrays.asList(context.databaseList().clone());
+        String[] dbList = context.databaseList();
+        return Arrays.asList(dbList);
     }
 
     /**
@@ -49,4 +52,25 @@ public class SQLExport {
         return tables;
     }
 
+    /**
+     * <p>
+     * pragma table_info( 表名 )
+     * </p>
+     * 查询表结构
+     * */
+    public void queryTableStructure(String tableName){
+        StringBuilder sb = new StringBuilder();
+        sb.append("pragma table_info")
+                .append("(")
+                .append(tableName)
+                .append(")");
+        Cursor cursor = db.rawQuery(sb.toString(), null);
+        if (cursor.moveToFirst()){
+            do {
+                String[] columnNames = cursor.getColumnNames();
+                DbLog.log(new Gson().toJson(columnNames));
+            }while (cursor.moveToNext());
+        }
+        cursor.close();
+    }
 }

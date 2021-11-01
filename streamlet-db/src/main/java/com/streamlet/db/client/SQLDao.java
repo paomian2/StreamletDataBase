@@ -1,4 +1,4 @@
-package com.streamlet.db;
+package com.streamlet.db.client;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="HardcodedText,RtlHardcoded,UselessParent" >
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvStruct"
+            android:text="结构"
+            android:background="@drawable/border_tab_left_normal"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           />
+
+        <TextView
+            android:id="@+id/tvData"
+            android:background="@drawable/border_tab_normal"
+            android:text="数据"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@drawable/border_tab_normal"
+            android:text="约束"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@drawable/border_tab_normal"
+            android:text="Indexes"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@drawable/border_tab_normal"
+            android:text="触发器"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@drawable/border_tab_right_normal"
+            android:text="DDL"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

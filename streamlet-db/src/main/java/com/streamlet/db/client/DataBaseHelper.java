@@ -1,4 +1,4 @@
-package com.streamlet.db;
+package com.streamlet.db.client;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,6 +37,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                                              String dbName) {
         return new DataBaseHelper(context, dbName, null, 1);
     }
+
+    public static SQLiteDatabase createDataBase(Context context,
+                                             String dbName) {
+        return new DataBaseHelper(context, dbName, null, 1).getWritableDatabase();
+    }
+
+
 
     public void createTable(Class<?> clazz) {
         Generator.createTable(this.getReadableDatabase(), clazz);

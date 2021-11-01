@@ -1,4 +1,9 @@
 package com.streamlet.db;
+
+import com.streamlet.db.client.Id;
+import com.streamlet.db.client.Length;
+import com.streamlet.db.client.Table;
+
 @Table(name = "stu_user")
 public class User {
     @Id()

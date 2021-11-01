@@ -2,7 +2,7 @@ package com.streamlet.db.sys;
 
 import android.content.Context;
 
-import com.streamlet.db.DbLog;
+import com.streamlet.db.client.DbLog;
 
 
 public class DBUtils {
