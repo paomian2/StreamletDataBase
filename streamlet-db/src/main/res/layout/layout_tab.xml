@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvConstraint"
             android:background="@drawable/border_tab_normal"
             android:text="约束"
             android:paddingTop="2dp"
@@ -43,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvIndexes"
             android:background="@drawable/border_tab_normal"
             android:text="Indexes"
             android:paddingTop="2dp"
@@ -52,6 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvTrigger"
             android:background="@drawable/border_tab_normal"
             android:text="触发器"
             android:paddingTop="2dp"
@@ -61,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:id="@+id/tvDDL"
             android:background="@drawable/border_tab_right_normal"
             android:text="DDL"
             android:paddingTop="2dp"

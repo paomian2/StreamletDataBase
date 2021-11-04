@@ -61,7 +61,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         SQLDao.getInstance(this.getWritableDatabase()).updateActive(entity, "");
     }
 
-    public <T> List<T> queryAll(Class<?> clazz) {
+    public <T> List<T> queryAll(Class<T> clazz) {
         return SQLDao.getInstance(this.getWritableDatabase()).queryAll(clazz);
     }
 
@@ -76,3 +76,4 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         }
     }
 }
+

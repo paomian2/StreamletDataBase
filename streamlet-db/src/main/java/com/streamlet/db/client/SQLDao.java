@@ -4,6 +4,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.streamlet.db.utils.GsonUtils;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,7 +91,7 @@ public class SQLDao {
     /**
      * @param clazz:需要查询的表
      * */
-    public <T> List<T> queryAll(Class<?> clazz) {
+    public <T> List<T> queryAll(Class<T> clazz) {
         if (!isDbOpen()) return new ArrayList<>();
         String tableName = getTableName(clazz);
         Cursor cursor = db.query(tableName, null, null, null, null, null, null);
@@ -136,7 +138,7 @@ public class SQLDao {
         cursor.close();
         String resultJSON = new Gson().toJson(queryResultMaps);
         DbLog.log(resultJSON);
-        return new Gson().fromJson(resultJSON, new TypeToken<List<T>>() {}.getType());
+        return GsonUtils.json2List(resultJSON,clazz);
     }
 
     /*

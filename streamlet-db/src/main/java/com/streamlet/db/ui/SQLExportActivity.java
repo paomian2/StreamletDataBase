@@ -56,7 +56,7 @@ public class SQLExportActivity extends AppCompatActivity {
             bottomSheetDialog.show();
         });
         rvAdapter.setOnItemClickListener(dbName -> {
-
+            tableHomeFragment.refreshDatabaseName(dbName);
         });
         rvAdapter.refreshData(SQLExport.getDBList(this));
         tableHomeFragment = new TableHomeFragment();
@@ -64,6 +64,9 @@ public class SQLExportActivity extends AppCompatActivity {
             tableHomeFragment.refreshDatabaseName(rvAdapter.dbs.get(0));
         }
         replaceFragment();
+
+        findViewById(R.id.layoutLeft).setOnClickListener(v -> {});
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
     }
 
 
@@ -95,6 +98,10 @@ public class SQLExportActivity extends AppCompatActivity {
             DataBaseHelper.createDataBase(this,dbName);
             rvAdapter.refreshData(SQLExport.getDBList(this));
         });
+    }
+
+    public void openDataBaseListClick(View view){
+        drawerLayout.openDrawer(Gravity.LEFT);
     }
 
     public void openCreateTableClick(View view){

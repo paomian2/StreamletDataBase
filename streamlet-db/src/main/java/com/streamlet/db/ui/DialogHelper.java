@@ -23,6 +23,15 @@ import com.streamlet.db.utils.PhoneManager;
  */
 public class DialogHelper {
 
+    public static Dialog editTableColumn(Context mContext,OnResultClickListener<String> okListener){
+        final Dialog dialog = new Dialog(mContext, R.style.promptDialog);
+        @SuppressLint("InflateParams") View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_edit_table_column, null);
+        dialog.setContentView(view);
+        dialog.getWindow().getAttributes().gravity = Gravity.CENTER;
+        dialog.show();
+        return dialog;
+    }
+
 
     public static Dialog showCreateDialog(Context mContext,OnResultClickListener<String> okListener){
         final Dialog dialog = new Dialog(mContext, R.style.promptDialog);

@@ -54,6 +54,14 @@ public class TableHomeFragment extends BaseFragment{
         if (!TextUtils.isEmpty(dbName)){
             adapter.refreshData(SQLExport.getInstance(getActivity(),dbName).queryTables());
         }
+        adapter.setOnItemClickListener(tbName -> {
+            for (BaseFragment fragment:fragments){
+                fragment.refreshDatabaseName(dbName);
+                if (adapter.tables.size()>0){
+                    fragment.refreshTableName(dbName,tbName);
+                }
+            }
+        });
         initTabView();
     }
 
@@ -61,14 +69,40 @@ public class TableHomeFragment extends BaseFragment{
     private void initTabView(){
         TextView tvStruct = contentView.findViewById(R.id.tvStruct);
         TextView tvData = contentView.findViewById(R.id.tvData);
+        TextView tvConstraint = contentView.findViewById(R.id.tvConstraint);
+        TextView tvIndexes = contentView.findViewById(R.id.tvIndexes);
+        TextView tvTrigger = contentView.findViewById(R.id.tvTrigger);
+        TextView tvDDL = contentView.findViewById(R.id.tvDDL);
         tvStruct.setOnClickListener(v -> {
             replaceFragment(fragments.get(0));
         });
         tvData.setOnClickListener(v -> {
             replaceFragment(fragments.get(1));
         });
+        tvConstraint.setOnClickListener(v -> {
+            replaceFragment(fragments.get(2));
+        });
+        tvIndexes.setOnClickListener(v -> {
+            replaceFragment(fragments.get(3));
+        });
+        tvTrigger.setOnClickListener(v -> {
+            replaceFragment(fragments.get(4));
+        });
+        tvDDL.setOnClickListener(v -> {
+            replaceFragment(fragments.get(5));
+        });
         fragments.add(new TableStructFragment());
         fragments.add(new TableDataFragment());
+        fragments.add(new TableConstraintFragment());
+        fragments.add(new TableIndexesFragment());
+        fragments.add(new TableTriggerFragment());
+        fragments.add(new TableDDLFragment());
+        for (BaseFragment fragment:fragments){
+            fragment.refreshDatabaseName(dbName);
+            if (adapter.tables.size()>0){
+                fragment.refreshTableName(dbName,adapter.tables.get(0));
+            }
+        }
         replaceFragment(fragments.get(0));
     }
 
@@ -84,6 +118,12 @@ public class TableHomeFragment extends BaseFragment{
         super.refreshDatabaseName(name);
         if (adapter!=null){
             adapter.refreshData(SQLExport.getInstance(getActivity(),dbName).queryTables());
+            for (BaseFragment fragment:fragments){
+                fragment.refreshDatabaseName(dbName);
+                if (adapter.tables.size()>0){
+                    fragment.refreshTableName(dbName,adapter.tables.get(0));
+                }
+            }
         }
     }
 
@@ -147,6 +187,6 @@ public class TableHomeFragment extends BaseFragment{
     }
 
     private interface OnItemClickListener{
-        void onClick(String dbName);
+        void onClick(String tbName);
     }
 }

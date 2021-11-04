@@ -5,12 +5,15 @@ package com.streamlet.db.bean;
  * 创建日期：2021年11月01日 6:09 下午
  * version：
  * 描述：
+ *
+ * 只能查出
+ * cid  name type notnull dflt_value pk
  */
 public class TableAttrs {
 
+    private String cid;
     private String fieldName;
     private String fieldType;
-    private int size;
     private boolean primary;
     private boolean outKey;
     private boolean unique;
@@ -18,6 +21,14 @@ public class TableAttrs {
     private boolean autoincrement;
     private Object value;
     private Object defValue;
+
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
 
     public String getFieldName() {
         return fieldName;
@@ -33,14 +44,6 @@ public class TableAttrs {
 
     public void setFieldType(String fieldType) {
         this.fieldType = fieldType;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
     }
 
     public boolean isPrimary() {

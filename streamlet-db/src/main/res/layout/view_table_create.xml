@@ -30,9 +30,8 @@
            android:layout_height="30dp"
            tools:ignore="Autofill,LabelFor,RtlHardcoded,TextFields" />
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTableAttrs"
+    <com.streamlet.db.ui.CreateTableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
